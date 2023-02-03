@@ -12,3 +12,4 @@ scikit-learn
 argparse
 mlflow
 django
+aws-ecs-services
