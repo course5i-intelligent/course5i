@@ -64,7 +64,7 @@
     "EC2",
     "FARGATE"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:ap-south-1:013723609256:task-definition/medicine:13",
+  "taskDefinitionArn": "arn:aws:ecs:ap-south-1:013723609256:task-definition/medicine:17",
   "family": "medicine",
   "requiresAttributes": [
     {
@@ -126,7 +126,7 @@
     "cpuArchitecture": null
   },
   "cpu": "256",
-  "revision": 13,
+  "revision": 17,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
