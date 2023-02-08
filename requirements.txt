@@ -13,3 +13,4 @@ argparse
 mlflow
 django
 aws-ecs-services
+gunicorn

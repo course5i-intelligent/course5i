@@ -1,8 +1,7 @@
-FROM ubuntu
-ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update
-RUN apt-get install apache2 -y
-RUN apt-get install apache2-utils -y
-RUN apt-get clean
-EXPOSE 80
-CMD ["apache2ctl","-D","FOREGROUND"]
+FROM python:3.7-slim
+WORKDIR /webapp
+COPY requirements.txt .
+RUN pip install --no-cache-dir requirements.txt
+COPY . .
+EXPOSE 8000
+CMD ["python","./webapp/manage.py","runserver","0.0.0.0:8000"]
