@@ -5,6 +5,6 @@ RUN apt-get install apache2 -y
 RUN apt-get install apache2-utils -y
 RUN apt-get clean
 EXPOSE 80
-RUN echo "Hello From Server" > /var/wwww/html/index.html
+RUN echo "Hello From Server for Course5i" > /var/wwww/html/index.html
 CMD ["apache2ctl","-D"."FOREGROUND"]
 #smal Changes
