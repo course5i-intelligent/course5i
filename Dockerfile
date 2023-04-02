@@ -1,10 +1,14 @@
-FROM ubuntu
-ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update
-RUN apt-get install apache2 -y
-RUN apt-get install apache2-utils -y
-RUN apt-get clean
-EXPOSE 80
-RUN echo "Hello From Server for Course5i" > /var/wwww/html/index.html
-CMD ["apache2ctl","-D"."FOREGROUND"]
-#smal Changes
+FROM python:3.8.13-slim-buster
+WORKDIR /app
+COPY ./webapp ./
+#COPY ./requirements.txt ./app/
+
+RUN pip install --upgrade pip --no-cache-dir
+#RUN pip install django
+#RUN pip install psycopg2-binary
+#RUN pip install joblib
+#RUN pip install pandas
+
+RUN pip install -r /app/requirements.txt --no-cache-dir
+
+CMD ["python3","manage.py", "runserver","0.0.0.0:8000"]

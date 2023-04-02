@@ -11,4 +11,8 @@ jupyterlab
 scikit-learn
 argparse
 mlflow
-django
+Django
+gunicorn
+numpy
+psycopg2-binary
+joblib

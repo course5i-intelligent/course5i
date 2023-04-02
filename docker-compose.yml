@@ -1,0 +1,41 @@
+version: '2.2'
+
+services:
+
+  # postgres
+  # https://hub.docker.com/_/postgres
+  db:
+    container_name: postgres
+    platform : linux/amd64
+    image: "postgres:14.6-alpine"
+    restart: always
+    environment:
+      - POSTGRES_USER={###}
+      - POSTGRES_PASSWORD={###}
+      - POSTGRES_DB={###}
+    volumes:
+      - db_data:/users/a/documents/docker_db/
+    networks:
+      - service
+    ports:
+      - "5432:5432"
+ # Container Deployment
+   #https://www.pgadmin.org/docs/pgadmin4/6.10/container_deployment.html
+  # https://hub.docker.com/r/dpage/pgadmin4/
+  pgadmin:
+    platform : linux/amd64
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+     -  PGADMIN_DEFAULT_EMAIL=info@xerxez.in
+     -  PGADMIN_DEFAULT_PASSWORD=Tanzeem@12345
+    depends_on:
+      - db
+    networks:
+      - service
+    ports:
+      - "80:80"
+
+volumes:
+  db_data: {}
